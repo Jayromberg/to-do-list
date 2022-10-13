@@ -1,6 +1,6 @@
 import React from 'react';
-import Form from './components/form';
-import List from './components/list';
+import Form from './components/Form';
+import List from './components/List';
 
 
 function App() {
