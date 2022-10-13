@@ -1,5 +1,5 @@
 import React from 'react';
-import SubmitButton from './styled';
+import SubmitButton from './styles';
 
 class Button extends React.Component {
   render() {
