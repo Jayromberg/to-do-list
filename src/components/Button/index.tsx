@@ -1,11 +1,15 @@
 import React from 'react';
 import SubmitButton from './styles';
 
-class Button extends React.Component {
+interface IProps {
+  children: string;
+}
+
+class Button extends React.Component<IProps> {
   render() {
     return (
       <SubmitButton>
-        Botão
+        {this.props.children}
       </SubmitButton>
     )
   }
