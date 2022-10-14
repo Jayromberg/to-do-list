@@ -1,20 +1,28 @@
 import react from 'react';
+import { Lists, Item } from './styles';
 
 function List() {
+  const tarefas = [{
+    tarefa: "React",
+    tempo: "03:00:00"
+  },
+  {
+    tarefa: "TypeScript",
+    tempo: "03:00:00"
+  }]
+
   return (
-    <aside>
+    <Lists>
       <h2>Tarefas do dia</h2>
       <ul>
-        <li>
-          <h3>React</h3>
-          <span>08:00:00</span>
-        </li>
-        <li>
-          <h3>TypeScript</h3>
-          <span>23:00:00</span>
-        </li>
+       {tarefas.map((e, index) => (
+        <Item key={`${index}${e.tarefa}`}>
+          <h3>{e.tarefa}</h3>
+          <span>{e.tempo}</span>
+        </Item>
+       ))}
       </ul>
-    </aside>
+    </Lists>
   )
 }
 

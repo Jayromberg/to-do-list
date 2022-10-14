@@ -1,44 +1,105 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  * {
-    background-color: #888;
-    color: #F0F0F0;
-    font-family: "Avenir Next", "Avenir", sans-serif;
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed, 
+  figure, figcaption, footer, header, hgroup, 
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
   }
 
-  *, *::before, *::after {
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure, 
+  footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+
+  body {
+    line-height: 1;
+  }
+
+  ol, ul {
+    list-style: none;
+  }
+
+  blockquote, q {
+    quotes: none;
+  }
+
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+    content: '';
+    content: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  input {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+  }
+
+  button {
+    border: unset;
+    background-color: unset;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit; 
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Manjari&display=swap');
+
+  body {
+    display: flex;
+    justify-content: center;
+    font-family: 'Manjari', sans-serif;
+    color: #F0F0F0;
+    background-color: #4C4C4C;
+    height: 100%;
+    width: 100%;
+    padding: 16px;
     box-sizing: border-box;
   }
 
-  * {
-    margin: 0;
+  #root {
+    width: 100%;
   }
-  
-  html, body {
-    height: 100%;
+
+  ::-webkit-scrollbar {
+    width: 8px;
   }
- 
-  body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
+
+  ::-webkit-scrollbar-track {
+    background: unset;
   }
-  
-  img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: #888;
   }
- 
-  input, button, textarea, select {
-    font: inherit;
-  }
- 
-  p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
- 
-  #root, #__next {
-    isolation: isolate;
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 `;
 
