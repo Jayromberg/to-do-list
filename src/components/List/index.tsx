@@ -1,5 +1,5 @@
-import react from 'react';
-import { Lists, Item } from './styles';
+import { Lists } from './styles';
+import Item from './Item';
 
 function List() {
   const tarefas = [{
@@ -16,10 +16,10 @@ function List() {
       <h2>Tarefas do dia</h2>
       <ul>
        {tarefas.map((e, index) => (
-        <Item key={`${index}${e.tarefa}`}>
-          <h3>{e.tarefa}</h3>
-          <span>{e.tempo}</span>
-        </Item>
+        <Item
+        key={`${index}${e.tarefa}`} 
+        {...e}
+        />
        ))}
       </ul>
     </Lists>
