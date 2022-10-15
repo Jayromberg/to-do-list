@@ -1,11 +1,18 @@
 import React from 'react';
 import SubmitButton from './styles';
 
-class Button extends React.Component {
+interface IProps {
+  type?: "button" | "submit" | "reset" | undefined;
+  children: string;
+}
+
+class Button extends React.Component<IProps> {
   render() {
+    const { children, type = 'button' } = this.props;
+
     return (
-      <SubmitButton>
-        Botão
+      <SubmitButton type={type}>
+        {children}
       </SubmitButton>
     )
   }

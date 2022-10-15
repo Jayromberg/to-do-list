@@ -1,16 +1,36 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { ITasks } from '../../type/tasks';
 import Button from '../Button';
 import Forms from './styles';
 
-class Form extends React.Component {
+class Form extends React.Component<{ setTasks: React.Dispatch<React.SetStateAction<ITasks[]>> }> {
+  constructor(props: Readonly<{ setTasks: Dispatch<SetStateAction<ITasks[]>>; }>) {
+    super(props);
+    this.addTask = this.addTask.bind(this);
+  }
+
+  state = {
+    task: '',
+    time: '00:00'
+  } 
+
+  addTask(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    this.props.setTasks((previous) => [...previous, { ...this.state, selected: false, completed: false, id: uuidv4() }]);
+    this.setState({ task: '', time: '00:00' });
+  }
+
   render() {
     return (
-      <Forms>
+      <Forms onSubmit={this.addTask}>
         <div className="inputContainer">
           <label htmlFor="assignment">
             Adicione uma nova tarefa
           </label>
-          <input 
+          <input
+            value={this.state.task}
+            onChange={e => this.setState({ ...this.state, task: e.target.value })}
             type="text"
             name="assignment"
             id="assignment"
@@ -23,6 +43,8 @@ class Form extends React.Component {
             Tempo
           </label>
           <input
+            value={this.state.time}
+            onChange={e => this.setState({ ...this.state ,time: e.target.value })}
             type="time"
             step="1"
             name="time"
@@ -32,7 +54,11 @@ class Form extends React.Component {
             required
           />
         </div>
-        <Button />
+        <Button 
+          type="submit"
+        >
+          Adicionar
+        </Button>
       </Forms>
     )  
   }

@@ -1,25 +1,18 @@
-import react from 'react';
-import { Lists, Item } from './styles';
+import { Lists } from './styles';
+import Item from './Item';
+import { ITasks } from '../../type/tasks';
 
-function List() {
-  const tarefas = [{
-    tarefa: "React",
-    tempo: "03:00:00"
-  },
-  {
-    tarefa: "TypeScript",
-    tempo: "03:00:00"
-  }]
+function List({ tasks }: { tasks: ITasks[] }) {
 
   return (
     <Lists>
       <h2>Tarefas do dia</h2>
       <ul>
-       {tarefas.map((e, index) => (
-        <Item key={`${index}${e.tarefa}`}>
-          <h3>{e.tarefa}</h3>
-          <span>{e.tempo}</span>
-        </Item>
+       {tasks.map((task, index) => (
+        <Item
+        key={`${index}${task.task}`} 
+        {...task}
+        />
        ))}
       </ul>
     </Lists>
