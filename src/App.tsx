@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import List from './components/List';
+import Timer from './components/Timer';
 import AppStyle from './styles';
 import GlobalStyle from './UI/GlobalStyled';
 
@@ -11,6 +12,7 @@ function App() {
       <GlobalStyle />
       <Form />
       <List />
+      <Timer />
     </AppStyle>
   );
 }
