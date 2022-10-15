@@ -1,16 +1,18 @@
 import { Lists } from './styles';
-import Item from './Item';
-import { ITasks } from '../../type/tasks';
+import ItemCard from './Item';
+import { useContext } from 'react';
+import GlobalStateContext from '../../contexts/GlobalStateContext';
 
-function List({ tasks }: { tasks: ITasks[] }) {
-
+function List() {
+  const { tasks } = useContext(GlobalStateContext);
+  
   return (
     <Lists>
       <h2>Tarefas do dia</h2>
       <ul>
-       {tasks.map((task, index) => (
-        <Item
-        key={`${index}${task.task}`} 
+       {tasks.map((task) => (
+        <ItemCard
+        key={task.id} 
         {...task}
         />
        ))}

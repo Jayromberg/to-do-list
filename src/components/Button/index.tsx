@@ -6,16 +6,14 @@ interface IProps {
   children: string;
 }
 
-class Button extends React.Component<IProps> {
-  render() {
-    const { children, type = 'button' } = this.props;
+function Button(props: IProps) {
+  const { children, type = 'button' } = props;
 
-    return (
-      <SubmitButton type={type}>
-        {children}
-      </SubmitButton>
-    )
-  }
+  return (
+    <SubmitButton type={type}>
+      {children}
+    </SubmitButton>
+  )
 }
 
 export default Button;
