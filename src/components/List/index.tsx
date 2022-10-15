@@ -1,16 +1,8 @@
 import { Lists } from './styles';
 import Item from './Item';
-import { useState } from 'react';
+import { ITasks } from '../../type/tasks';
 
-function List() {
-  const [tasks, setTasks] = useState([{
-    tarefa: "React",
-    tempo: "03:00:00"
-  },
-  {
-    tarefa: "TypeScript",
-    tempo: "03:00:00"
-  }])
+function List({ tasks }: { tasks: ITasks[] }) {
 
   return (
     <Lists>
@@ -18,7 +10,7 @@ function List() {
       <ul>
        {tasks.map((task, index) => (
         <Item
-        key={`${index}${task.tarefa}`} 
+        key={`${index}${task.task}`} 
         {...task}
         />
        ))}

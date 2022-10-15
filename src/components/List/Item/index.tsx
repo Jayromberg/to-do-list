@@ -1,17 +1,13 @@
+import { ITasks } from "../../../type/tasks";
 import { Item } from "../styles"
 
-interface IProps {
-  tarefa: string;
-  tempo: string;
-}
-
-export default function item(props: IProps) {
-  const { tarefa, tempo } = props;
+export default function item(props: ITasks) {
+  const { task, time } = props;
 
   return (
     <Item>
-      <h3>{tarefa}</h3>
-      <span>{tempo}</span>
+      <h3>{task}</h3>
+      <span>{time}</span>
     </Item>
   )
 }

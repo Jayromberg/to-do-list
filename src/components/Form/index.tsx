@@ -3,14 +3,25 @@ import Button from '../Button';
 import Forms from './styles';
 
 class Form extends React.Component {
+  state = {
+    task: '',
+    time: '00:00'
+  } 
+
+  addTask(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+  }
+
   render() {
     return (
-      <Forms>
+      <Forms onSubmit={this.addTask}>
         <div className="inputContainer">
           <label htmlFor="assignment">
             Adicione uma nova tarefa
           </label>
-          <input 
+          <input
+            value={this.state.task}
+            onChange={e => this.setState({ ...this.state, task: e.target.value })}
             type="text"
             name="assignment"
             id="assignment"
@@ -23,6 +34,8 @@ class Form extends React.Component {
             Tempo
           </label>
           <input
+            value={this.state.time}
+            onChange={e => this.setState({ ...this.state ,time: e.target.value })}
             type="time"
             step="1"
             name="time"
@@ -32,7 +45,9 @@ class Form extends React.Component {
             required
           />
         </div>
-        <Button>
+        <Button 
+          type="submit"
+        >
           Adicionar
         </Button>
       </Forms>
