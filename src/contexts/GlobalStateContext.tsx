@@ -3,9 +3,9 @@ import { ITasks } from '../type/tasks';
 
 interface Context {
   tasks: ITasks[],
-  setTasks: (setTasks: ITasks[]) => void,
+  setTasks: React.Dispatch<React.SetStateAction<ITasks[]>>,
   selected: ITasks | undefined,
-  setSelected: () => void,
+  setSelected: React.Dispatch<React.SetStateAction<ITasks | undefined>>,
   selectTask: (selectedTask: ITasks) => void,
 }
 

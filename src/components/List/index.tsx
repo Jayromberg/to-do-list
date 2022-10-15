@@ -1,22 +1,19 @@
 import { Lists } from './styles';
-import Item from './Item';
-import { ITasks } from '../../type/tasks';
+import ItemCard from './Item';
+import { useContext } from 'react';
+import GlobalStateContext from '../../contexts/GlobalStateContext';
 
-interface IProps {
-  tasks: ITasks[],
-  selectTask: (selectedTask: ITasks) => void,
-}
-
-function List({ tasks, selectTask }: IProps) {
+function List() {
+  const { tasks } = useContext(GlobalStateContext);
+  
   return (
     <Lists>
       <h2>Tarefas do dia</h2>
       <ul>
-       {tasks.map((task, index) => (
-        <Item
+       {tasks.map((task) => (
+        <ItemCard
         key={task.id} 
         {...task}
-        selectTask={selectTask}
         />
        ))}
       </ul>

@@ -1,13 +1,11 @@
+import { useContext } from 'react';
+import GlobalStateContext from "../../../contexts/GlobalStateContext";
 import { ITasks } from "../../../type/tasks";
 import { Item } from "../styles"
 
-interface IProps extends ITasks {
-  selectTask: (selectedTask: ITasks) => void,
-}
-
-export default function item(props: IProps) {
-  const { task, time, selected, completed, id,selectTask } = props;
-  console.log(selected);
+export default function ItemCard(props: ITasks) {
+  const { task, time, selected, completed, id } = props;
+  const { selectTask } = useContext(GlobalStateContext);
   
   return (
     <Item

@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import GlobalStateContext from '../../contexts/GlobalStateContext';
-import { ITasks } from '../../type/tasks';
 import Button from '../Button';
 import Forms from './styles';
 
