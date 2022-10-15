@@ -9,12 +9,20 @@ import GlobalStyle from './UI/GlobalStyled';
 
 function App() {
   const [tasks, setTasks] = useState<ITasks[]>([])
+  const [selected, setSelected] = useState<ITasks>()
+
+  function selectTask(selectedTask: ITasks) {
+    setSelected(selectedTask);
+  }
 
   return (
     <AppStyle>
       <GlobalStyle />
       <Form setTasks={setTasks} />
-      <List tasks={tasks} />
+      <List
+      selectTask={selectTask} 
+      tasks={tasks}
+      />
       <Timer />
     </AppStyle>
   );

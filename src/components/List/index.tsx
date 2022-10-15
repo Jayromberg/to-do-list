@@ -2,16 +2,21 @@ import { Lists } from './styles';
 import Item from './Item';
 import { ITasks } from '../../type/tasks';
 
-function List({ tasks }: { tasks: ITasks[] }) {
+interface IProps {
+  tasks: ITasks[],
+  selectTask: (selectedTask: ITasks) => void,
+}
 
+function List({ tasks, selectTask }: IProps) {
   return (
     <Lists>
       <h2>Tarefas do dia</h2>
       <ul>
        {tasks.map((task, index) => (
         <Item
-        key={`${index}${task.task}`} 
+        key={task.id} 
         {...task}
+        selectTask={selectTask}
         />
        ))}
       </ul>

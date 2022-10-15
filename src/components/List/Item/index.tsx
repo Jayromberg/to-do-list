@@ -1,11 +1,23 @@
 import { ITasks } from "../../../type/tasks";
 import { Item } from "../styles"
 
-export default function item(props: ITasks) {
-  const { task, time } = props;
+interface IProps extends ITasks {
+  selectTask: (selectedTask: ITasks) => void,
+}
+
+export default function item(props: IProps) {
+  const { task, time, selected, completed, id,selectTask } = props;
 
   return (
-    <Item>
+    <Item onClick={() => selectTask(
+      {
+        task,
+        time,
+        selected,
+        completed,
+        id,
+      }
+    )}>
       <h3>{task}</h3>
       <span>{time}</span>
     </Item>
