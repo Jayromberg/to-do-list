@@ -7,17 +7,21 @@ interface IProps extends ITasks {
 
 export default function item(props: IProps) {
   const { task, time, selected, completed, id,selectTask } = props;
-
+  console.log(selected);
+  
   return (
-    <Item onClick={() => selectTask(
-      {
-        task,
-        time,
-        selected,
-        completed,
-        id,
-      }
-    )}>
+    <Item
+      className="itemSelecionado"
+      onClick={() => selectTask(
+        {
+          task,
+          time,
+          selected,
+          completed,
+          id,
+        }
+      )}
+    >
       <h3>{task}</h3>
       <span>{time}</span>
     </Item>
