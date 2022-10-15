@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { ITasks } from '../../type/tasks';
 import Button from '../Button';
 import Forms from './styles';
@@ -16,7 +17,8 @@ class Form extends React.Component<{ setTasks: React.Dispatch<React.SetStateActi
 
   addTask(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    this.props.setTasks((previous) => [...previous, { ...this.state }])
+    this.props.setTasks((previous) => [...previous, { ...this.state, selected: false, completed: false, id: uuidv4() }]);
+    this.setState({ task: '', time: '00:00' });
   }
 
   render() {
