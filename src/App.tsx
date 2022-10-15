@@ -3,23 +3,17 @@ import Form from './components/Form';
 import List from './components/List';
 import Timer from './components/Timer';
 import AppStyle from './styles';
+import { ITasks } from './type/tasks';
 import GlobalStyle from './UI/GlobalStyled';
 
 
 function App() {
-  const [tasks, setTasks] = useState([{
-    task: "React",
-    time: "03:00:00"
-  },
-  {
-    task: "TypeScript",
-    time: "03:00:00"
-  }])
+  const [tasks, setTasks] = useState<ITasks[]>([])
 
   return (
     <AppStyle>
       <GlobalStyle />
-      <Form />
+      <Form setTasks={setTasks} />
       <List tasks={tasks} />
       <Timer />
     </AppStyle>

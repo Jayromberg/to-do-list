@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
+import { ITasks } from '../../type/tasks';
 import Button from '../Button';
 import Forms from './styles';
 
-class Form extends React.Component {
+class Form extends React.Component<{ setTasks: React.Dispatch<React.SetStateAction<ITasks[]>> }> {
+  constructor(props: Readonly<{ setTasks: Dispatch<SetStateAction<ITasks[]>>; }>) {
+    super(props);
+    this.addTask = this.addTask.bind(this);
+  }
+
   state = {
     task: '',
     time: '00:00'
@@ -10,6 +16,7 @@ class Form extends React.Component {
 
   addTask(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    this.props.setTasks((previous) => [...previous, { ...this.state }])
   }
 
   render() {
