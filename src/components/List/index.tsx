@@ -13,7 +13,8 @@ function List() {
       <ul>
        {tasks.map((task) => (
         <StyleProvider key={task.id} selected={task.selected}>
-          <ItemCard 
+          <ItemCard
+          key={`${task.id}${task.time}`}
           {...task}
           />
         </StyleProvider>
