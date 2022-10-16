@@ -1,4 +1,4 @@
-import { Lists } from './styles';
+import { Aside } from './styles';
 import ItemCard from './Item';
 import { useContext } from 'react';
 import GlobalStateContext from '../../contexts/GlobalStateContext';
@@ -7,7 +7,7 @@ function List() {
   const { tasks } = useContext(GlobalStateContext);
   
   return (
-    <Lists>
+    <Aside>
       <h2>Tarefas do dia</h2>
       <ul>
        {tasks.map((task) => (
@@ -17,7 +17,7 @@ function List() {
         />
        ))}
       </ul>
-    </Lists>
+    </Aside>
   )
 }
 

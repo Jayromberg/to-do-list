@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Lists = styled.aside`
+export const Aside = styled.aside`
   height: 100%;
 
   h2 {

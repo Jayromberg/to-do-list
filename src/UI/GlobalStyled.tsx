@@ -67,8 +67,6 @@ const GlobalStyle = createGlobalStyle`
     color: inherit; 
   }
 
-  @import url('https://fonts.googleapis.com/css2?family=Manjari&display=swap');
-
   body {
     display: flex;
     justify-content: center;

@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import GlobalStateContext from '../../contexts/GlobalStateContext';
 import Button from '../Button';
-import Forms from './styles';
+import FormStyles from './styles';
 
 function Form() {
   const { tasks, setTasks } = useContext(GlobalStateContext)
@@ -19,7 +19,7 @@ function Form() {
   }
 
   return (
-    <Forms onSubmit={addTask}>
+    <FormStyles onSubmit={addTask}>
       <div className="inputContainer">
         <label htmlFor="assignment">
           Adicione uma nova tarefa
@@ -55,7 +55,7 @@ function Form() {
       >
         Adicionar
       </Button>
-    </Forms>
+    </FormStyles>
   )
 }
 

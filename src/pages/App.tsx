@@ -1,9 +1,9 @@
-import Form from './components/Form';
-import List from './components/List';
-import Timer from './components/Timer';
-import GlobalStateProvider from './contexts/GlobalStateProvider';
+import Form from '../components/Form';
+import List from '../components/List';
+import Timer from '../components/Timer';
+import GlobalStateProvider from '../contexts/GlobalStateProvider';
 import AppStyle from './styles';
-import GlobalStyle from './UI/GlobalStyled';
+import GlobalStyle from '../UI/GlobalStyled';
 
 
 function App() {
