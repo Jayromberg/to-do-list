@@ -11,6 +11,7 @@ export default function ItemCard(props: ITasks) {
   return (
     <Item
       completed={completed}
+      selected={selected}
       onClick={() => !completed && selectTask(
         {
           task,

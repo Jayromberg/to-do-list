@@ -1,9 +1,14 @@
 import styled from "styled-components";
 
+interface IStyle {
+  completed: boolean;
+  selected: boolean;
+}
+
 export const Item = styled.li`
-  background-color: ${(props) => props.theme.background};
+  background-color: ${(props: IStyle) => props.selected ? '#292929' : '#4D4D4D'};
   border-radius: 8px;
-  box-shadow: ${(props) => props.theme.boxShadow};
+  box-shadow: ${(props: IStyle) => props.selected ? '2px 4px 4px #0000009F inset' : '2px 4px 4px #0000009F'};
   padding: 12px;
   margin-bottom: 8px;
   position: relative;
@@ -22,7 +27,7 @@ export const Item = styled.li`
     font-size: 1.8rem;
   }
 
-  ${(props: { completed: boolean }) => {
+  ${(props: IStyle ) => {
     if (props.completed) {
       return `
       background-color: #566F42;
