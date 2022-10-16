@@ -2,6 +2,7 @@ import { Lists } from './styles';
 import ItemCard from './Item';
 import { useContext } from 'react';
 import GlobalStateContext from '../../contexts/GlobalStateContext';
+import StyleProvider from './StyleProvider';
 
 function List() {
   const { tasks } = useContext(GlobalStateContext);
@@ -11,10 +12,11 @@ function List() {
       <h2>Tarefas do dia</h2>
       <ul>
        {tasks.map((task) => (
-        <ItemCard
-        key={task.id} 
-        {...task}
-        />
+        <StyleProvider key={task.id} selected={task.selected}>
+          <ItemCard 
+          {...task}
+          />
+        </StyleProvider>
        ))}
       </ul>
     </Lists>

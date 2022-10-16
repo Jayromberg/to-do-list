@@ -29,9 +29,9 @@ export const Lists = styled.aside`
   }
 `
 export const Item = styled.li`
-  background-color: #4D4D4D;
+  background-color: ${(props) => props.theme.background};
   border-radius: 8px;
-  box-shadow: 2px 4px 4px #0000009F;
+  box-shadow: ${(props) => props.theme.boxShadow};
   padding: 12px;
   margin-bottom: 8px;
   position: relative;
@@ -48,11 +48,6 @@ export const Item = styled.li`
 
   @media screen and (min-width:1280px) {
     font-size: 1.8rem;
-  }
-
-  .itemSelecionado {
-    background-color: #292929;
-    box-shadow: 2px 4px 4px #0000009F inset;
   }
 
   .itemCompletado {

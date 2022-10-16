@@ -9,7 +9,6 @@ export default function ItemCard(props: ITasks) {
   
   return (
     <Item
-      className="itemSelecionado"
       onClick={() => selectTask(
         {
           task,
