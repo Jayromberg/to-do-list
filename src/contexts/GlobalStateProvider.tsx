@@ -1,8 +1,8 @@
-import React, { useMemo, useState } from 'react';
+import React, { SetStateAction, useCallback, useMemo, useState } from 'react';
 import { ITasks } from '../type/tasks';
 import GlobalStateContext from './GlobalStateContext';
 
-interface ContextProvider {
+interface ContextProvider  {
   children: React.ReactNode,
 }
 
@@ -18,13 +18,30 @@ function GlobalStateProvider({ children }: ContextProvider) {
     })))
   }
 
+  const finishTask = useCallback(() => {
+    if (selected) {
+      setSelected(undefined);
+      setTasks((previous: any) => previous.map((task: ITasks) => {
+        if (task.id === selected.id) {
+          return {
+            ...task,
+            selected: false,
+            completed: true
+          }
+        }
+        return task;
+      }))
+    }
+  }, [selected])
+
   const globalState = useMemo(() => ({
     tasks,
     setTasks,
     selected,
     setSelected,
-    selectTask
-  }), [selected, tasks]);
+    selectTask,
+    finishTask
+  }), [finishTask, selected, tasks]);
 
   return (
     <GlobalStateContext.Provider value={globalState}>

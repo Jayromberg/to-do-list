@@ -1,14 +1,25 @@
 import React from "react";
 import { NumberClock, DivisionClock } from "./styles";
+import { converterForStopwatch } from "../../../common/utils/time";
 
-export default function Clock() {
+interface IProps {
+  time: number | undefined,
+}
+
+export default function Clock({ time = 0 }: IProps) {
+  const { 
+    firstNumberMinute,
+    secondNumberMinute,
+    firstNumberSecond,
+    secondNumberSecond } = converterForStopwatch(time);
+
   return (
     <React.Fragment>
-      <NumberClock>0</NumberClock>
-      <NumberClock>0</NumberClock>
+      <NumberClock>{firstNumberMinute}</NumberClock>
+      <NumberClock>{secondNumberMinute}</NumberClock>
       <DivisionClock>:</DivisionClock>
-      <NumberClock>0</NumberClock>
-      <NumberClock>0</NumberClock>
+      <NumberClock>{firstNumberSecond}</NumberClock>
+      <NumberClock>{secondNumberSecond}</NumberClock>
     </React.Fragment>
   )
 }

@@ -1,16 +1,16 @@
-import React from 'react';
 import SubmitButton from './styles';
 
 interface IProps {
-  type?: "button" | "submit" | "reset" | undefined;
-  children: string;
+  type?: "button" | "submit" | "reset" | undefined,
+  children: string,
+  onClick?: () => void,
 }
 
 function Button(props: IProps) {
-  const { children, type = 'button' } = props;
+  const { children, type = 'button', onClick } = props;
 
   return (
-    <SubmitButton type={type}>
+    <SubmitButton onClick={onClick} type={type}>
       {children}
     </SubmitButton>
   )

@@ -7,6 +7,7 @@ interface Context {
   selected: ITasks | undefined,
   setSelected: React.Dispatch<React.SetStateAction<ITasks | undefined>>,
   selectTask: (selectedTask: ITasks) => void,
+  finishTask: () => void
 }
 
 const initialValues = {
@@ -15,6 +16,7 @@ const initialValues = {
   selected: undefined,
   setSelected: () => {},
   selectTask: () => {},
+  finishTask: () => {}
 }
 
 const GlobalStateContext = createContext<Context>(initialValues);
