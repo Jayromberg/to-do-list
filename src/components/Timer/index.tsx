@@ -7,7 +7,6 @@ import GlobalStateContext from "../../contexts/GlobalStateContext";
 
 export default function Timer() {
   const { selected } = useContext(GlobalStateContext);
-
   const [time, setTime] = useState<number>();
 
   useEffect(() => {
@@ -20,7 +19,7 @@ export default function Timer() {
     <TimerStyle>
       <p className="titulo">Escolha um card e inicie o cronômetro</p>
       <div className="relogioWrapper">
-        <Clock/>
+        <Clock time={time}/>
       </div>
       <Button>
         Iniciar!
