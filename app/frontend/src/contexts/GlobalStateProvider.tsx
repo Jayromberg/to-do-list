@@ -1,4 +1,4 @@
-import React, { SetStateAction, useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { ITasks } from '../type/tasks';
 import GlobalStateContext from './GlobalStateContext';
 
